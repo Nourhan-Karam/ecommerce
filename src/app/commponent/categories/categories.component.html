@@ -1,0 +1,50 @@
+<section class="container">
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let item of allcategories">
+      <div class="border rounded-2 product">
+        <img height="350" class="w-100" [src]="item.image" [alt]="item.name" />
+        <h3 class="h4 main-color text-center">{{ item.name }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row my-5 pt-5 g-4">
+    <h4 class="my-5 h2 main-color text-center">
+      Women's Fashion subcategories
+    </h4>
+    <div class="col-md-4">
+      <div class="border rounded-3 p-4 text-center product">
+        <h4>Kid's Fashion</h4>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="border rounded-3 p-4 text-center product">
+        <h4>Handbags</h4>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="border rounded-3 p-4 text-center product">
+        <h4>Eyewear</h4>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="border rounded-3 p-4 text-center product">
+        <h4>Jewellery</h4>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="border rounded-3 p-4 text-center product">
+        <h4>Watches</h4>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="border rounded-3 p-4 text-center product">
+        <h4>Footwear</h4>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="border rounded-3 p-4 text-center product">
+        <h4>Women's Clothing</h4>
+      </div>
+    </div>
+  </div>
+</section>

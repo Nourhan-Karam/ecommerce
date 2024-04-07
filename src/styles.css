@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+.main-color {
+  color: rgb(79, 160, 79);
+}
+.active {
+  color: white !important;
+  background-color: rgb(79, 160, 79);
+  border-radius: 5px;
+  border: none;
+}
+.main-btn {
+  border-radius: 6px;
+  color: white !important;
+  background-color: rgb(79, 160, 79);
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+}
+:disabled {
+  background-color: rgb(140, 234, 140);
+  color: white;
+  cursor: not-allowed;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.rating-color {
+  color: #daa520;
+}
+.product {
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.product:hover {
+  box-shadow: 0 0 15px rgb(79, 160, 79);
+  border-radius: 5px;
+}
+.product .main-btn {
+  transform: translateY(120%);
+  transition: all 0.5s;
+}
+.product:hover .main-btn {
+  transform: translateY(0%);
+}
+.brown-color {
+  color: #b0edfa;
+}

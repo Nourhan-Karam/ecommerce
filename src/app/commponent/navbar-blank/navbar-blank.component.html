@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/"
+      ><img
+        src="./assets/images-20240306T201906Z-001/images/freshcart-logo.svg"
+        alt=""
+    /></a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/home"
+            >Home</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/wishlist"
+            >Wish list</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/card"
+            >Card</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/products"
+            >Products</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/categories"
+            >Catagories</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/prands"
+            >Prands</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-center">
+        <li class="nav-item position-relative">
+          <a class="nav-link" routerLink="/card"
+            ><i class="fa-solid fa-cart-shopping main-color fa-2x"></i>
+            <span class="badge bg-info position-absolute top-0 end-0">{{
+              cartCount
+            }}</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <i class="fa-brands ms-2 fa-facebook"></i>
+          <i class="fa-brands ms-2 fa-instagram"></i>
+          <i class="fa-brands ms-2 fa-twitter"></i>
+        </li>
+
+        <li class="nav-item ms-2" role="button">
+          <span (click)="loginOutUser()">SignOut</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

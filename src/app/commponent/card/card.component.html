@@ -1,0 +1,72 @@
+<section class="container bg-light my-4 p-3">
+  <div class="row justify-content-between">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-between">
+        <div>
+          <h3>Cart Shop</h3>
+          <p class="my-3">
+            total price:
+            <span class="main-color">{{
+              cartDetails.totalCartPrice | currency : " EGP "
+            }}</span>
+          </p>
+        </div>
+        <div>
+          <button
+            [routerLink]="['/sheckout', cartDetails._id]"
+            class="my-3 main-btn"
+          >
+            check out
+            <img
+              src="./assets/images-20240306T201906Z-001/images/visa-1.svg"
+              alt=""
+            />
+          </button>
+          <p>
+            total number of items :
+            <span class="main-color fs-4">
+              {{ allDetails.numOfCartItems }}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row pb-2 border-bottom mb-1 align-items-center"
+    *ngFor="let item of cartDetails.products"
+  >
+    <div class="col-md-2">
+      <img [src]="item.product.imageCover" class="w-100" alt="" />
+    </div>
+    <div class="col-md-10">
+      <div class="d-flex justify-content-between">
+        <div>
+          <h4>{{ item.product.title | termtext : 5 }}</h4>
+          <p class="m-0 p-0">{{ item.price | currency : " EGP " }}</p>
+          <button
+            (click)="removeCardItem(item.product._id)"
+            class="btn text-danger p-0 m-0"
+          >
+            <i class="fa-solid fa-trash"></i> Remove
+          </button>
+        </div>
+        <div>
+          <button
+            (click)="changCount(item.product._id, item.count + 1)"
+            class="btn border-success"
+          >
+            +
+          </button>
+          <span> {{ item.count }} </span>
+          <button
+            (click)="changCount(item.product._id, item.count - 1)"
+            class="btn border-success"
+          >
+            -
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

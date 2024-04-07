@@ -1,0 +1,134 @@
+<section>
+  <form [formGroup]="registerForm" (ngSubmit)="handlForm()">
+    <div class="form-item py-2">
+      <label for="name">Name :</label>
+      <input
+        formControlName="name"
+        class="form-control"
+        type="text"
+        id="name"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          (registerForm.get('name')?.touched ||
+            registerForm.get('name')?.value.length > 0) &&
+          registerForm.get('name')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('name')?.getError('required')">
+          name is requird
+        </p>
+        <p *ngIf="registerForm.get('name')?.getError('minlength')">
+          min length 3
+        </p>
+        <p *ngIf="registerForm.get('name')?.getError('maxlength')">
+          max length 10
+        </p>
+      </div>
+    </div>
+    <div class="form-item py-2">
+      <label for="email">Email :</label>
+      <input
+        formControlName="email"
+        class="form-control"
+        type="email"
+        id="email"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          (registerForm.get('email')?.touched ||
+            registerForm.get('email')?.value.length > 0) &&
+          registerForm.get('email')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('email')?.getError('required')">
+          email is required
+        </p>
+        <p *ngIf="registerForm.get('email')?.getError('email')">
+          email is invalid
+        </p>
+      </div>
+    </div>
+    <div class="form-item py-2">
+      <label for="password">Password :</label>
+      <input
+        formControlName="password"
+        class="form-control"
+        type="password"
+        id="password"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          (registerForm.get('password')?.touched ||
+            registerForm.get('password')?.value.length > 0) &&
+          registerForm.get('password')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('password')?.getError('required')">
+          password is required
+        </p>
+        <p *ngIf="registerForm.get('password')?.getError('pattern')">
+          password must be at 6 chars
+        </p>
+      </div>
+    </div>
+    <div class="form-item py-2">
+      <label for="rePassword">rePassword :</label>
+      <input
+        formControlName="rePassword"
+        class="form-control"
+        type="password"
+        id="rePassword"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          (registerForm.get('rePassword')?.touched ||
+            registerForm.get('rePassword')?.value.length > 0) &&
+          registerForm.get('rePassword')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('rePassword')?.getError('required')">
+          password is required
+        </p>
+        <p *ngIf="registerForm.get('rePassword')?.getError('mismatch')">
+          rePassword is not equal to the password
+        </p>
+      </div>
+    </div>
+    <div class="form-item py-2">
+      <label for="phone">Phone :</label>
+      <input
+        formControlName="phone"
+        class="form-control"
+        type="tel"
+        id="phone"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          (registerForm.get('phone')?.touched ||
+            registerForm.get('phone')?.value.length > 0) &&
+          registerForm.get('phone')?.errors
+        "
+      >
+        <p *ngIf="registerForm.get('phone')?.getError('required')">
+          phone is required
+        </p>
+        <p *ngIf="registerForm.get('phone')?.getError('pattern')">
+          accept only egypt phone number
+        </p>
+      </div>
+    </div>
+    <button [disabled]="registerForm.invalid" type="submit" class="main-btn">
+      Rigister
+      <span *ngIf="isSpanner"><i class="fa-solid fa-spinner fa-spin"></i></span>
+    </button>
+    <div *ngIf="errorMasage" class="alert alert-danger my-2">
+      {{ errorMasage }}
+    </div>
+  </form>
+</section>

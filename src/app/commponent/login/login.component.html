@@ -1,0 +1,63 @@
+<section class="container p-5">
+  <form class="bg-light p-5" [formGroup]="loginForm" (ngSubmit)="handlform()">
+    <label for="email">email:</label>
+    <input
+      #inputEmail
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+    />
+    <div
+      *ngIf="
+        loginForm.get('email')?.errors &&
+        (loginForm.get('email')?.touched || inputEmail.value.length > 0)
+      "
+      class="alert alert-danger"
+    >
+      <p *ngIf="loginForm.get('email')?.getError('requird')">
+        email is required
+      </p>
+      <p *ngIf="loginForm.get('email')?.getError('email')">email is invalid</p>
+    </div>
+
+    <label for="password">password:</label>
+    <input
+      #inputPassword
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+    />
+    <div
+      *ngIf="
+        loginForm.get('password')?.errors &&
+        (loginForm.get('password')?.touched || inputPassword.value.length > 0)
+      "
+      class="alert alert-danger"
+    >
+      <p *ngIf="loginForm.get('password')?.getError('requird')">
+        password is requird
+      </p>
+      <p *ngIf="loginForm.get('password')?.getError('pattern')">
+        password must be at 6 chars
+      </p>
+    </div>
+
+    <button class="main-btn" [disabled]="loginForm.invalid" type="submit">
+      login
+      <span *ngIf="isSpanner"><i class="fa-solid fa-spinner fa-spin"></i></span>
+    </button>
+
+    <div *ngIf="errorMasage" class="alert alert-danger my-2">
+      {{ errorMasage }}
+    </div>
+
+    <div
+      routerLink="/forgetpassword"
+      class="text-end main-color cursor-pointer"
+    >
+      <p>forget your password ?</p>
+    </div>
+  </form>
+</section>

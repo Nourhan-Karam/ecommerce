@@ -1,0 +1,28 @@
+<section class="container bg-light my-5">
+  <h2 class="py-2">My Wish List</h2>
+  <div
+    class="row pb-2 border-bottom mb-1 align-items-center"
+    *ngFor="let item of wishData"
+  >
+    <div class="col-md-2">
+      <img [src]="item.imageCover" class="w-100" alt="" />
+    </div>
+    <div class="col-md-10">
+      <div class="d-flex justify-content-between">
+        <div>
+          <h4>{{ item.title | termtext : 5 }}</h4>
+          <p class="m-0 p-0">{{ item.price | currency : " EGP " }}</p>
+          <button (click)="removItem(item._id)" class="btn text-danger p-0 m-0">
+            <i class="fa-solid fa-trash"></i> Remove
+          </button>
+        </div>
+        <button
+          (click)="addCart(item._id)"
+          class="btn py-3 px-2 my-btn rounded-2"
+        >
+          Add To Card
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
